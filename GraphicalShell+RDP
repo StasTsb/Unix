@@ -1,0 +1,29 @@
+-----------------------
+GraphicalShell 
+Ubuntu Server 22.04
+-----------------------
+~Install graphical shell:
+sudo apt install ubuntu-desktop (Gnome)
+sudo apt install kubuntu-desktop (KDE)
+sudo apt install xfce4 (XFCE)
+sudo apt-get install lxde (LXDE)
+
+sudo reboot
+-----------------------
+Remote Desktop Protocol
+-----------------------
+~Install XRDP:
+sudo apt install xrdp
+
+~Access to the port in Brandmaur:
+sudo ufw allow 3389/tcp
+
+~Create File with color profile:
+sudo vi /etc/polkit-1/localauthority/50-local.d/45-allow.colord.pkla
+
+[Allow Colord all Users]
+Identity=unix-user:*
+Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile
+ResultAny=no
+ResultInactive=no
+ResultActive=yes
